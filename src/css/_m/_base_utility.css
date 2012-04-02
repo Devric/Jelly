@@ -1,0 +1,36 @@
+/* floats */
+.left   { float: left }
+.right  { float: right }
+.center { display:block; margin-right:auto; margin-left:auto }
+
+/* alignments */
+.textleft    { text-align:left    }
+.textright   { text-align:right   }
+.textcenter  { text-align:center  }
+.textjustify { text-align:justify }
+
+.textinnercenter div,
+.textinnercenter p,
+.textinnercenter span,
+.textinnercenter ul,
+.textinnercenter ol
+{ text-align:center  }
+
+/* clears */
+hr.clear {
+    border:  0;
+    margin:  0;
+    padding: 0;
+}
+
+/* clearfix */
+.clearfix:before,
+.clearfix:after { content:""; display:table; }
+.clearfix:after {clear:both;}
+.clearfix {zoom:1;}
+
+/* image */
+.fullscale {
+    width:100%;
+    height:auto;
+}

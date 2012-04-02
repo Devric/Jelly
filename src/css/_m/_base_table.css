@@ -1,0 +1,48 @@
+/* generic */
+table {
+    width:100%;
+    max-width:100%;
+}
+
+caption {
+    font-size:1.1em
+}
+
+caption, th {
+    font-weight:bold
+}
+
+caption, th, td {
+    padding:8px 15px
+}
+
+/* Bordered */
+.border th,
+.border td {
+    border:1px solid #eee;
+}
+
+.border th {
+    border-bottom:0;
+}
+
+/* Zebra & highlight */
+tr:hover td,
+.zebra tr:nth-child(odd) td {
+    background: #F5F5F5;
+}
+
+/* bordered zebra */
+.border.zebra tr:nth-child(odd) td {
+    border:1px solid #EBDDEB;
+    border-bottom:0;
+    border-top:0;
+}
+.border.zebra tr:nth-child(odd) td:first-child {
+    border-left:1px solid #eee;
+    
+}
+
+.border.zebra tr:nth-child(odd) td:last-child {
+    border-right:1px solid #eee;
+}

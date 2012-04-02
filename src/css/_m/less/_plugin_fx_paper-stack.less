@@ -1,0 +1,13 @@
+.m_paperstack(@bg:#eee, @shadow:rgba(0,0,0,0.15) ) {
+    background: @bg;
+    box-shadow:
+        0 1px 1px @shadow,       /* The top layer shadow */
+        0 10px 0 -5px @bg,       /* The second layer */
+        0 10px 1px -4px @shadow, /* The second layer shadow */
+        0 20px 0 -10px @bg,      /* The third layer */
+        0 20px 1px -9px @shadow; /* The third layer shadow */
+}
+
+.paperstack {
+    .m_paperstack;
+}

@@ -1,0 +1,66 @@
+/* margins */
+input[type=text],
+input[type=password],
+textarea,
+fieldset,
+select,
+option { margin-bottom:15px }
+
+label.title {
+    font-weight:bold;
+    margin:5px 0 5px;
+}
+
+/* border styles */
+input[type=text],
+input[type=password],
+input[type=email],
+select,
+textarea {
+    border:1px solid #ccc;
+    padding:5px;
+
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+
+    box-shadow:inset 0 0 2px 1px #eee;
+}
+
+/* radio and checkbox */
+label.radio,
+label.checkbox {
+    margin:7px 0 10px;
+    padding-left:20px;
+    font-size:0.9em;
+    line-height:1.3
+}
+
+label.radio input,
+label.checkbox input {
+    margin: -3px 0 0 -18px;
+    display:inline;
+}
+
+label.radio.inline,
+label.checkbox.inline {
+    float:left;
+    margin-right:8px
+}
+
+/* select */
+select      { height:26px; line-height:26 }
+select[multiple=multiple]   { height:auto }
+
+/* helps & alerts */
+.help {
+    font-size:0.8em;
+    margin:-10px 0 10px;
+    color:#777
+}
+
+.error   { color:red }
+.warning { color:#F89405 }
+.success { color:green }
+.info    { color:#3A87AC }

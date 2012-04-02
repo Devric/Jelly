@@ -1,0 +1,193 @@
+@import url(config.css);
+
+/* TABELE OF CONTENT
+ * =================
+ * 
+ * 1- site setup
+ * 2- buttons
+ * 3- 
+ * *- readme
+ *
+ * */
+
+
+
+
+
+/* 1- site setup
+ * ============================================= */
+
+body {
+    /* [?] control overall font-size, 
+     * can use media quiries to control body{font-size} 
+     * or js on widow .resize / .width */
+    font-size:90%; 
+    font-family: "Helvetica Neue", Helvetica, 'Palatino Linotype', Palatino,  Arial, sans-serif;
+    color: #555;
+}
+
+
+    /* [?] give space on sides in mobile
+     * use padding if have background */
+    @media only screen and (max-width:801px){
+        body {
+            width:96%;
+            margin:0 auto;
+        }
+    }
+
+.site-container {
+    /* [?] site container are 
+     * set with width 100%
+     * use min|max to control,
+     * although you don't need to worry about min 
+     * if you use the jelly grid */
+    max-width:960px;
+}
+
+
+
+
+
+
+/* 2- buttons
+ * ============================================= */
+
+/* [?] extend or overwrite,
+ * if changing background color, 
+ * make sure you match the 
+ * borders with both active/hover
+ * eg: */
+
+.button,
+input[type=button],
+input[type=submit],
+input[type=reset],
+button {
+    width:80px;
+    margin:2px 5px 2px 0;
+    border-radius:3px;
+    text-shadow: 0 5px 0px rgba(255,255,255,1), 1px 3px 0px rgba(255,255,255,1);
+}
+
+
+
+
+/* table
+ * ============================================= */
+
+/* [?] adding round border */
+table { border-collapse:separate }
+tr:first-child th:first-child { border-radius:5px 0 0 0 }
+tr:first-child th:last-child  { border-radius:0 5px 0 0 }
+tr:last-child td:last-child   { border-radius:0 0 5px 0 }
+tr:last-child td:first-child  { border-radius:0 0 0 5px }
+
+
+
+
+/* color setup
+ * ============================================= */
+
+a       { color:#777 }
+a:hover { color:#333 }
+h6      { color:#777 }
+
+
+
+
+
+
+
+/* Customizing jelly grid
+ * ============================================= */
+
+/* [?] lazy styling, recommand remove this and use .last if you want more control
+ * the .last is used to float right on desktop,
+ * but it resets to float left when width > 800px
+ * unless you use device-half/third-last to float right again
+ * so you can easily control the placement order of the stack
+ * when transfering from desktop to mobile */
+
+.half   > div:last-child,
+.third  > div:last-child,
+.fourth > div:last-child,
+.fifth  > div:last-child,
+.sixth  > div:last-child
+{ float:right; margin-right:0 }
+
+/* [?] Formulat to calculate new grid span
+ * { (column width + margin) * column number } + margin-right 
+ * margin-right = 2.2%
+ * third width  = 31.8%
+ * fourth width = 23.35%
+ * fifth width  = 18.24%
+ * sixth width  = 14.83% 
+ * [WARNING] make sure you reset it or redefine override in media query 
+ * eg: threesixth !important overides .sixth > div width 
+ * the device-full was defined before this, thus requires to be place after
+ * to be effective overide */
+
+/* create new width span */
+.foursixth {
+    width:65.92% !important;
+    margin-right:2.2%;
+}
+
+    @media only screen and (max-width:801px){
+        .device-full { width:100% !important }
+    }
+
+
+/* Form setup
+ * ============================================= */
+
+/* width */
+input[type=text],
+input[type=password],
+textarea,
+select,
+fieldset { width:100% }
+
+
+
+
+
+/* Extend ui-jelly-navbar for dark
+ * ============================================= */
+.ui-jelly-navbar.dark {
+    background:#444;
+    box-shadow: 1px 1px 3px 1px #777;
+    border:1px solid #444;
+}
+
+.ui-jelly-navbar.dark a {
+    color:white;
+}
+
+.ui-jelly-navbar.dark div{
+    background:#444;
+    border:0;
+}
+
+.ui-jelly-navbar.dark .search-widget input[type=text] {
+    background:#666;
+    box-shadow:none;
+    border:1px solid #555;
+    color:#eee;
+    border-radius:10px;
+}
+
+.ui-jelly-navbar.dark .search-widget input[type=submit] {
+    border-radius:9px;
+}
+
+
+/* *- readme
+ * ================
+ * box-model: border-box are activated | _base_reset.css
+ *
+ * 
+ * - Guides are marked with [?]
+ * - Each heading comments should correspond to its file name: eg: _p/_ui_buttons_jelly should be something like /* _p buttons jelly-ui (dependent1:dependent2)
+ * */

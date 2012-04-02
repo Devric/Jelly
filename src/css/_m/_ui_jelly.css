@@ -1,0 +1,320 @@
+/* Table Of Content
+ * ===========================================
+ *
+ * Name                       | Dependency
+ * -------------------------------------------
+ * Navbar                     | _base_nav  
+ * Standalone dropdown button | _base_nav  
+ * Search widget              | _base_form 
+ * Pagination                 | _base_nav  
+ * Breadcrumb                 | _base_nav  
+ * Display                    | N/A        
+ * Alerts                     | _base_form 
+ *
+ * */
+ 
+
+/* Navbar
+ * [method] ul.nav.ui-jelly-navbar
+ * Dependency: _base_nav
+ * =========================================== */
+
+.ui-jelly-navbar {
+    height:40px;
+    padding:0 15px;
+    border:1px solid #eee;
+    border-radius:4px;
+    box-shadow:1px 1px 3px 1px rgba(150,150,150,0.1);
+}
+
+/* First level */
+.ui-jelly-navbar > li {
+    min-width:80px;
+    height:39px;
+    margin-top:-1;
+}
+
+.ui-jelly-navbar > li > a {
+    display:block;
+    height:30px;
+    margin:11px 5px 0;
+}
+
+/* Second level */
+.ui-jelly-navbar .dropdown div {
+    width:100%;
+    min-width:150px;
+    background:white;
+    top:38px;
+}
+
+/* Reset margin */
+.ui-jelly-navbar .dropdown ul li {
+    margin-top:0
+}
+
+/* dropdown li & a hover action */
+.ui-jelly-navbar .dropdown li:hover {
+    background:#6AD9FC;
+}
+
+.ui-jelly-navbar .dropdown li a {
+    padding:10px 5px;
+    margin:0 0 5px;
+    display:block;
+}
+
+.ui-jelly-navbar .dropdown li:last-child a {
+    margin-bottom:0;
+}
+
+.ui-jelly-navbar .dropdown li:hover a {
+    color:white;
+}
+
+.ui-jelly-navbar .search-widget {
+    margin-top:8px;
+    display:block;
+}
+
+@media only screen and (max-width:801px){
+    
+    /* rest style */
+    .ui-jelly-navbar {
+        border-radius:0;
+        height:auto;
+        padding:0;
+    }
+
+    .ui-jelly-navbar li {
+        height:auto;
+        width:100%;
+        padding:0;
+    }
+
+    .ui-jelly-navbar .dropdown {
+        padding:0;
+    }
+
+    /* redefine positioning */
+    .ui-jelly-navbar .dropdown div {
+        position:static;
+        width:100%;
+        font-size:0.8em;
+    }
+
+    /* set border */
+    .ui-jelly-navbar .dropdown li:first-child { border-top:1px solid #eee }
+    .ui-jelly-navbar .dropdown li:last-child  { border-bottom:4px solid #6AD9FC }
+
+}
+
+/* dropdown standalone button 
+ * [method] .dropdown.button > a + ( div > ul )
+ * Dependency: _base_nav
+ * =========================================== */
+.dropdown.button {
+    margin:0;
+    width:auto;
+    text-align:center;
+}
+
+.dropdown.button:hover  { margin-top:3px }
+.dropdown.button:active { margin-top:2px }
+
+.dropdown.button a {
+    padding:5px 25px 0 10px ;
+    display:block;
+}
+
+.dropdown.button a:after {
+    right:5px;
+    top:9px;
+}
+
+.dropdown.button div {
+    background:white;
+    width:100%;
+    left:0;
+    top:41px;
+    border:1px solid #ccc;
+    border-radius:0 0 5px 5px;
+    text-align:left;
+}
+
+.dropdown.button li {
+    padding:4px 0;
+}
+
+.dropdown.button li a {
+    text-shadow:none;
+}
+.dropdown.button li:hover {
+    background:#6AD9FC;
+}
+.dropdown.button li:hover a {
+    color:white;
+}
+
+
+
+/* Search widget
+ * [method] .search-widget
+ * Dependency: _base_form
+ * =========================================== */
+.search-widget {
+    position:relative;
+    height:30px;
+}
+
+.search-widget input[type=text],
+.search-widget input[type=input]{
+    margin:0;
+    outline:none;
+}
+
+/* search box */
+.search-widget input[type=text]{
+    padding-right:40px;
+    border:1px solid #eee;
+}
+
+.search-widget input[type=submit]{
+    position:absolute;
+    right:-2px;
+    top:0;
+
+    border:1px solid #eee;
+    padding:0;
+
+    height:20px;
+    width:46px;
+
+    font-size:0.7em;
+}
+
+.search-widget input[type=submit]:hover {
+    margin-top:2px;
+    color:#6AD9FC
+}
+
+
+/* pagination
+ * [method] ui.nav.ui-jelly-pager
+ * Dependency: _base_nav
+ * =========================================== */
+
+.ui-jelly-pager li {
+    border:1px solid #eee;
+    border-right:0;
+    margin-right:0;
+    border-bottom:4px solid #eee;
+}
+
+.ui-jelly-pager li a {
+    padding:10px 18px;
+    margin:0;
+    display:block;
+}
+
+/* border radius for first and last el */
+.ui-jelly-pager li:first-child { border-radius:4px 0 0 4px }
+.ui-jelly-pager li:last-child  { border-right:1px solid #eee; border-radius: 0 4px 4px 0 }
+
+.ui-jelly-pager .active,
+.ui-jelly-pager li:hover   { background:#ccc; margin-top:3px; margin-bottom:-3px; border-bottom:1px solid #eee;}
+
+.ui-jelly-pager .active a,
+.ui-jelly-pager li:hover a { color:#fff; }
+
+/* disabled */
+.ui-jelly-pager .disabled,
+.ui-jelly-pager .disabled:hover   { background:#e7e7e7; margin-top:0; border-bottom:4px solid #eee }
+.ui-jelly-pager .disabled a,
+.ui-jelly-pager .disabled:hover a { color:#ccc }
+
+
+
+
+
+/* breadcrumb
+ * [method] ui.nav.ui-jelly-breadcrumb
+ * Dependency: _base_nav
+ * =========================================== */
+.ui-jelly-breadcrumb li {
+    margin:0
+}
+.ui-jelly-breadcrumb a { 
+    font-size:0.9em;
+    color:#4BA5DF;
+}
+.ui-jelly-breadcrumb a:after { 
+    content:"/";
+    margin:0px 10px;
+    display:inline-block;
+}
+
+.ui-jelly-breadcrumb li:last-child a { 
+    color:#444
+}
+.ui-jelly-breadcrumb li:last-child a:after { 
+    content:""
+}
+
+
+
+
+
+/* .display : thumbnails, videos, images,
+ * [method] .display img/p/video/heading
+ * conjuctioning with grid eg: .third > .display
+ * =========================================== */
+.display {
+    border:1px solid #eee;
+    border-radius: 3px;
+    padding:4px;
+    margin-bottom:10px;
+}
+
+.display figure,
+.display img,
+.display video {
+    width:100%;
+    height:auto;
+}
+
+.display .title {
+    margin:8px 0;
+}
+
+
+
+
+/* alerts
+ * [method] .alert.[error info success warning]
+ * Dependency: _base_form
+ * =========================================== */
+.alert {
+    padding:10px;
+    border-radius:3px;
+    font-size:0.9em;
+    margin:10px auto;
+    position:relative;
+}
+.alert .close {
+    position:absolute;
+    right:10px;
+    top:8px;
+    font-weight:bold;
+    color:#c2c2c2;
+}
+
+.alert p { margin:4px 0 }
+
+.alert.error   { background:#FBE3E4; border:1px solid #FBd3d0 }
+.alert.warning { background:#FDF8E3; border:1px solid #EFEAD6 }
+.alert.success { background:#DFF0D8; border:1px solid #D4E4CE }
+.alert.info    { background:#DAEDF7; border:1px solid #D1E3EC }
+
+
+

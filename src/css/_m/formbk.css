@@ -1,0 +1,56 @@
+/* not yet migrated */
+
+fieldset.inline, fieldset p {
+    label, input[type=text], input[type=password], input[type=file], select, textarea { display:inline-block; width:68%}
+    label { text-align:right; padding-right:15px; vertical-align:top; padding-top:2px; width:30% }
+    select {margin-top:6px;} 
+    input[type=checkbox], input[type=radio] { float:none; }
+    input[type=button], button, .button { float:right }
+}
+
+/* prepend/append input styles */
+.input-prepend, .input-append { margin:5px }
+.input-prepend .add-on, .input-append .add-on{
+    padding:4px;
+    min-width:15px;
+    text-align:center;
+    font-weight:normal;
+    color:#bfbfbf;
+    display:inline;
+    border: 1px solid #ccc;
+    background:#f5f5f5;
+    height:28px;
+    #shadow > .text-shadow(0 1px 0 white);
+    input[type=checkbox], input[type=radio]{ margin:0; }
+}
+.input-prepend{
+    .add-on, input { float:left;}
+    .add-on {
+        #border > .multi-radius(3px, 0, 0, 3px);
+    }
+    input[type=text],input[type=pass] {
+        #border > .multi-radius(0,3px,3px,0);
+        margin:0;
+        padding:5px;
+        border-left:0;
+    }
+}
+
+.input-append{
+    .add-on, input { float:right;}
+    .add-on {
+        #border > .multi-radius(0,3px,3px,0);
+    }
+    input[type=text],input[type=pass] {
+        margin:0;
+        padding:5px;
+        border-right:0;
+        #border > .multi-radius(3px, 0, 0, 3px);
+    }
+}
+/* ie8 hackes*/
+fieldset, #IE8#HACK { padding-top:1.4em; } 
+legend, #IE8#HACK { margin-top:0; margin-bottom:0; }
+
+/* formfield error container */
+form div.error { background:#fbe3e4; color:#8a1f11; padding:0.7em; margin-bottom:1em;#border > .border-radius(4px); #shadow > .text-shadow(0 1px 0 @grey);  }

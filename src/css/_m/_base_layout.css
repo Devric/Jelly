@@ -1,0 +1,24 @@
+html,
+body {
+    width:100%;
+    height:100%;
+}
+
+.site-container {
+    margin: 0 auto;
+    width:100%;
+}
+
+p { width:100% }
+
+ul, ol {
+    margin: 0 0 9px 25px
+}
+
+.nostyle ul,
+li ul,
+li ol {
+    margin:6px 0 6px 17px
+}
+
+.nostyle { list-style-type:none; margin-left:0 }
