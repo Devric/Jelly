@@ -1,6 +1,6 @@
 /* floats */
 .left   { float: left }
-.right  { float: right }
+.right  { float: right!important }
 .center { display:block; margin-right:auto; margin-left:auto }
 
 /* alignments */
