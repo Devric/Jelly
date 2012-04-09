@@ -10,6 +10,7 @@
 // | -- doOnce        | $('#el').doOnce(function(){...})  | it won't trigger twice if no element found
 // | -- get max size  | $('el').maxSize('width') / height | gets the max size or an array
 // | -- smooth scroll | goToByScroll(id);
+// | -- sample        | img <img src="http://sample" data-height="200" data-width="100" alt="This is text" />
 
 // | -----------------
 // | - plugins
@@ -52,6 +53,32 @@ jQuery.maxSize = function(type){
 function goToByScroll(id){
     $('html,body').animate({scrollTop: $("#"+id).offset().top}, 1000);
 }
+
+// sample image placeholder
+var Sample = (function(){ 
+
+    if ( $('img[src*="http://sample"]') ) {
+        $('img[src*="http://sample"]').each(function(){
+            $h = $(this).data('height') ? $(this).data('height') : 'auto';
+            $w = $(this).data('width') ? $(this).data('width') : '100%';
+            $t = $(this).attr('rel') ? $(this).attr('rel') : '';
+                
+            $(this).css({height:$h,width:$w});
+
+            $(this).wrap('<div class="sampleContainer"/>')
+                   .parent().css({
+                        color:'#ddd',
+                        background:'#ccc',
+                        height: $h,
+                        width: $w,
+                        position: 'relative',
+                   })
+                   .prepend( '<h3 style="position:absolute; top:50%; left:50%; width:160px; height:30px; margin: -15px -80px; text-align:center; color:#444; ">' + $(this).outerWidth() + ' x ' + $(this).height() + '</h3>' )
+                   .end().remove()
+        });
+    }
+
+});
 
 // -----------------
 // plugins
@@ -125,3 +152,6 @@ function goToByScroll(id){
     });
 })(jQuery); //end devSizing
 
+$(window).load(function(){ 
+    Sample();
+});
