@@ -10,7 +10,7 @@
 // | -- doOnce        | $('#el').doOnce(function(){...})  | it won't trigger twice if no element found
 // | -- get max size  | $('el').maxSize('width') / height | gets the max size or an array
 // | -- smooth scroll | goToByScroll(id);
-// | -- sample        | img <img src="http://sample" data-height="200" data-width="100" alt="This is text" />
+// | -- sample        | img <img src="http://sample" data-height="200" data-width="100" />
 
 // | -----------------
 // | - plugins
@@ -59,9 +59,16 @@ var Sample = (function(){
 
     if ( $('img[src*="http://sample"]') ) {
         $('img[src*="http://sample"]').each(function(){
-            $h = $(this).data('height') ? $(this).data('height') : 'auto';
-            $w = $(this).data('width') ? $(this).data('width') : '100%';
-            $t = $(this).attr('rel') ? $(this).attr('rel') : '';
+            var $h = $(this).data('height') ? $(this).data('height') : 'auto';
+            var $w = $(this).data('width') ? $(this).data('width') : '100%';
+            
+            if ( $w < 200 ) {
+                var $t = 'h5';
+            } else if ( $w < 300 ) {
+                var $t = 'h4';
+            } else {
+                var $t = 'h3';
+            }
                 
             $(this).css({height:$h,width:$w});
 
@@ -73,11 +80,17 @@ var Sample = (function(){
                         width: $w,
                         position: 'relative',
                    })
-                   .prepend( '<h3 style="position:absolute; top:50%; left:50%; width:160px; height:30px; margin: -15px -80px; text-align:center; color:#444; ">' + $(this).outerWidth() + ' x ' + $(this).height() + '</h3>' )
-                   .end().remove()
+                   .prepend( '<' + $t + ' style="position:absolute; top:50%; left:50%; width:160px; height:30px; margin: -15px -80px; text-align:center; color:#444; ">' + $(this).outerWidth() + ' x ' + $(this).height() + '</' + $t + '>' )
+                   .end().hide()
         });
     }
 
+    var destroy = function(){
+        if ( $('img[src*="http://sample"]') ) {
+                $(this).unwrap()
+                       .show();
+        }
+    }
 });
 
 // -----------------
@@ -152,6 +165,7 @@ var Sample = (function(){
     });
 })(jQuery); //end devSizing
 
-$(window).load(function(){ 
+$(window).on('load resize', function(){
+    Sample.destroy;
     Sample();
 });
