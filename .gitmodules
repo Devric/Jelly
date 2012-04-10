@@ -7,3 +7,6 @@
 [submodule "src/plugins/lib/prefixfree"]
 	path = src/plugins/lib/prefixfree
 	url = https://github.com/LeaVerou/prefixfree.git
+[submodule "src/plugins/lib/headjs"]
+	path = src/plugins/lib/headjs
+	url = https://github.com/headjs/headjs.git
