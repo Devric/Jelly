@@ -1,7 +1,12 @@
 /* floats */
+.device-right,
 .left   { float: left }
+
+.device-left,
 .right  { float: right!important }
+
 .center { display:block; margin-right:auto; margin-left:auto }
+
 
 /* alignments */
 .textleft    { text-align:left    }
@@ -34,3 +39,13 @@ hr.clear {
     width:100%;
     height:auto;
 }
+
+@media only screen and (max-width:801px){
+    .device-right  { float: right!important }
+    .device-left   { float: left!important }
+}
+
+/* dev */
+.bg { background:#eee; padding:5px; margin:0 0 5px }
+.bg .bg { background:#ddd }
+.bg .bg .bg { background:#ccc }

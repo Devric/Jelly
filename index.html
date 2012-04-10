@@ -17,21 +17,46 @@
     <!-- Mobile Safari bug: http://filamentgroup.com/examples/iosScaleBug/ -->
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
+
     <link rel="stylesheet" media="all" href="src/css/demo.css"/>
+    <!-- 
+    <link rel="stylesheet" media="all" href="src/css/app.css"/>
+    <link rel="stylesheet" media="all" href="src/css/app.min.css"/>
+    -->
+
+    <!-- js lib & plugins
+    ======================= -->
 
     <!-- jquery cdn and fallback -->
-    <script>!window.jQuery && document.write('<script src="src/plugins/vendor/jquery.js"><\/script>')</script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
+    <script>!window.jQuery && document.write('<script src="src/plugins/lib/jquery.js"><\/script>')</script>
 
-    <!-- plugins
-    ======================= -->
-    <script src="src/plugins/vendor/devTab.1.1.min.js"></script> <!--/ tab -->
+    <!-- head.js -->
+    <script src="src/plugins/lib/headjs/dist/head.load.min.js"></script>
 
+    <!-- plugins -->
+    <script type="text/javascript">
 
-    <!-- custom
-    ======================= -->
+        // Tab
+        head.js('src/plugins/lib/devTabs/devTab.min.js');
+    
+        // Prefixes 
+        head.js('src/plugins/lib/prefixfree/prefixfree.min.js');
 
-    <script src="src/plugins/app_helper.js"></script>
-    <script src="src/plugins/app.js"></script>
+    </script>
+
+    <!-- Modal -->
+    <script type="text/javascript">
+        head.js('src/plugins/lib/devPop/devPop.min.js') </script>
+    <link rel="stylesheet" type="text/css" href="src/plugins/lib/devPop/devPop.css" />
+
+    <!-- Your custom scripts & initiators -->
+    <!-- Do not initiate anything here -->
+    <script type="text/javascript">
+        head.js('src/plugins/app_helper.js');
+        head.js('src/plugins/app.js');
+    </script>
+
 
     <!-- meta
     ======================= -->
@@ -45,638 +70,32 @@
         
     <title></title>
     
-    <style type="text/css">
-        .demohide {
-            height:90px;
-            margin-bottom:5px;
-            overflow:hidden;
-        }
-    </style>
-
     <!--[if lte IE 9]>
         <script src="src/js/ie.js"></script>
         <link rel="stylesheet" media="all" href="css/_ie.css"/>
     <![endif]-->
+
+    <!-- Demo loader 
+    ======================= -->
+    <script type="text/javascript">
+        head.ready(function(){
+            $('#nav').load('demo/nav.html');
+            $('#typo').load('demo/typo.html');
+            $('#list').load('demo/list.html');
+            $('#form').load('demo/form.html');
+            $('#table').load('demo/table.html');
+            $('#ui').load('demo/ui.html');
+            $('#js').load('demo/script.html');
+        });
+    </script>
 </head>
 
 <body lang="en">
-    <div class="site-container">
-        <nav>
-            <ul class="nav">
-                <li><a href="#">menu 1</a></li>
-                <li class="dropdown">
-                <a href="#"> menu 2 </a>
-                    <div>
-                        <ul>
-                            <li><a href="#">drop 1</a></li>
-                            <li><a href="#">drop 2</a></li>
-                            <li><a href="#">drop 3</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="#">menu 3</a></li>
-                <li><a href="#">menu 4</a></li>
-                <li><a href="#">menu last</a></li>
-            </ul>
-            <ul class="nav ui-jelly-navbar">
-                <li><a href="#">menu 1</a></li>
-                <li class="dropdown">
-                <a href="#"> menu 2 </a>
-                    <div>
-                        <ul>
-                            <li><a href="#">drop 1</a></li>
-                            <li><a href="#">drop 2</a></li>
-                            <li><a href="#">drop 3</a></li>
-                            <li><a href="#">drop 4</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="#">menu 3</a></li>
-                <li><a href="#">menu 4</a></li>
-                <li><div class="search-widget"><input type="text" /> <input type="submit" value="Go"/></div></li>
-                <li><a href="#">menu last</a></li>
-                <li class="dropdown">
-                <a href="#"> menu 2 </a>
-                    <div>
-                        <ul>
-                            <li><a href="#">drop 1</a></li>
-                            <li><a href="#">drop 2</a></li>
-                            <li><a href="#">drop 3</a></li>
-                            <li><a href="#">drop 4</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-            <ul class="nav ui-jelly-navbar dark">
-                <li><a href="#">menu 1</a></li>
-                <li class="dropdown">
-                <a href="#"> menu 2 </a>
-                    <div>
-                        <ul>
-                            <li><a href="#">drop 1</a></li>
-                            <li><a href="#">drop 2</a></li>
-                            <li><a href="#">drop 3</a></li>
-                            <li><a href="#">drop 4</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="#">menu 3</a></li>
-                <li><a href="#">menu 4</a></li>
-                <li><div class="search-widget"><input type="text" /> <input type="submit" value="Go"/></div></li>
-                <li><a href="#">menu last</a></li>
-                <li class="dropdown">
-                <a href="#"> menu 2 </a>
-                    <div>
-                        <ul>
-                            <li><a href="#">drop 1</a></li>
-                            <li><a href="#">drop 2</a></li>
-                            <li><a href="#">drop 3</a></li>
-                            <li><a href="#">drop 4</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-            <ul class="nav ui-jelly-pager">
-                <li class="prev disabled">
-                    <a href="#">&larr;</a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li class="active"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li class="next">
-                    <a href="#">&rarr;</a>
-                </li>
-            </ul>
-
-            <ul class="nav ui-jelly-pager">
-                <li class="prev"><a href="#">Prev</a></li>
-                <li class="next"><a href="#">Next</a></li>
-            </ul>
-
-            <ul class="nav ui-jelly-breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Recipe</a></li>
-                <li><a href="#">Mixings</a></li>
-            </ul>
-        </nav>
-        <section class="half">
-            <div class="last textright"><h1 class="huge">Jelly</h1></div>
-            <div>
-                <h1>Heading 1</h1>
-                <h2>Heading 2</h2>
-                <h3>Heading 3</h3>
-                <h4>Heading 4</h4>
-                <h5>Heading 5</h5>
-                <h6>Heading 6</h6>
-            </div>
-            <div class="search-widget"><input type="text" /> <input type="submit" value="Go"/></div>
-        </section>
-    </div> <!-- end site-container -->
-    <div id="stage-container">
-        <div class="stage half clearfix">
-            <div id="sampleSlideTab" class="center device-center clearfix">
-                <div class="tab">
-                    <div class="title">slide 1</div>
-                    <img src="src/img/1.jpg"/>
-                </div>
-                <div class="tab">
-                    <div class="title">slide 2</div>
-                    <img src="src/img/2.jpg"/>
-                </div>
-                <div class="tab">
-                    <div class="title">slide 3</div>
-                    <img src="src/img/3.jpg"/>
-                </div>
-                <div class="tab">
-                    <div class="title">slide 4</div>
-                    <img src="src/img/4.jpg"/>
-                </div>
-                <div class="tab">
-                    <div class="title">slide 5</div>
-                    <img src="src/img/2.jpg"/>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="site-container">
-        <section>
-            <div class="third">
-                <div>
-                    <h1>Title <small>small</small></h1>
-                    <p class="h1">Curabitur sit amet leo.</p>
-                    <p>Curabitur sit amet leo in nisl ullamcorper imperdiet in quis ipsum. Aenean consequat porta odio, eget porttitor tortor tristique nec. Curabitur aliquet sapien eget nunc condimentum nec tincidunt nisl blandit. Suspendisse potenti.</p>
-                </div>
-                <div>
-                    <h2>Title <small>small</small></h2>
-                    <p class="h2">Curabitur sit amet leo in nisl ullamcorper.</p>
-                    <p>Curabitur sit amet leo in nisl ullamcorper imperdiet in quis ipsum. Aenean consequat porta odio, eget porttitor tortor tristique nec. Curabitur aliquet sapien eget nunc condimentum nec tincidunt nisl blandit. Suspendisse potenti.</p>
-                </div>
-                <div class="last">
-                    <h3>Title <small>small</small></h3>
-                        <p class="h3">Curabitur sit amet leo in nisl ullamcorper imperdiet in quis ipsum.</p>
-                    <p>Curabitur sit amet leo in nisl ullamcorper imperdiet in quis ipsum. Aenean consequat porta odio, eget porttitor tortor tristique nec. Curabitur aliquet sapien eget nunc condimentum nec tincidunt nisl blandit. Suspendisse potenti.</p>
-                </div>
-            </div>
-
-            <div class="third">
-                    <div>
-                        <h4>Title <small>small</small></h4>
-                        <p class="h4">Curabitur sit amet leo in nisl ullamcorper imperdiet in quis.</p>
-                        <p>Curabitur sit amet leo in nisl ullamcorper imperdiet in quis ipsum. Aenean consequat porta odio, eget porttitor tortor tristique nec. Curabitur aliquet sapien eget nunc condimentum nec tincidunt nisl blandit. Suspendisse potenti.</p>
-                    </div>
-                    <div>
-                        <h5>Title <small>small</small></h5>
-                        <p class="h5">Curabitur sit amet leo in nisl ullamcorper imperdiet in quis ipsum.</p>
-                        <p>Curabitur sit amet leo in nisl ullamcorper imperdiet in quis ipsum. Aenean consequat porta odio, eget porttitor tortor tristique nec. Curabitur aliquet sapien eget nunc condimentum nec tincidunt nisl blandit. Suspendisse potenti.</p>
-                    </div>
-                    <div class="last">
-                        <h6>Title <small>small</small></h6>
-                        <p class="h6">Curabitur sit amet leo in nisl ullamcorper imperdiet in quis ipsum.</p>
-                        <p>Curabitur sit amet leo in nisl ullamcorper imperdiet in quis ipsum. Aenean consequat porta odio, eget porttitor tortor tristique nec. Curabitur aliquet sapien eget nunc condimentum nec tincidunt nisl blandit. Suspendisse potenti.</p>
-                    </div>
-            </div> <!-- half -->
-        </section>
-
-        <section id="lists" class="third">
-            <!-- col 1 -->
-            <div class="device-third"> 
-                <ul>
-                    <li>testing</li>
-                    <li>on</li>
-                    <li>three
-                        <ul>
-                            <li>1</li>
-                            <li>2
-                                <ul>
-                                    <li>again</li>
-                                    <li>and again</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!-- col 2 -->
-            <div class="device-third"> 
-                <ol>
-                    <li>doing stuff</li>
-                    <li>ready</li>
-                    <li>go
-                        <ol>
-                            <li>1</li>
-                            <li>2
-                                <ol>
-                                    <li>again</li>
-                                    <li>and again</li>
-                                </ol>
-                            </li>
-                        </ol>
-                    </li>
-                </ol>
-            </div>
-            <!-- col 3 -->
-            <div class="device-third-last last"> 
-                <ul class="nostyle">
-                    <li>doing stuff</li>
-                    <li>ready</li>
-                    <li>go
-                        <ul class="nostyle">
-                            <li>1</li>
-                            <li>2
-                                <ul class="nostyle">
-                                    <li>again</li>
-                                    <li>and again</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="third">
-            <div class="">
-                <form action="post">
-                    <label name="name" class="title">Name:</label>
-                    <input type="text" for="name" />
-
-                    <label name="password" class="title">Password:</label>
-                    <input type="password" />
-                    <div class="help warning">This is help line</div>
-
-                    <label name="sex" class="title">Gender</label>
-                    <label class="radio">
-                        <input type="radio" name="sex" for="male" />
-                        Male
-                    </label>
-
-                    <label class="radio">
-                        <input type="radio" name="sex" for="female" />
-                        Female
-                    </label>
-
-                    <label for="" class="title">Checkbox</label>
-                    <label class="checkbox">
-                        <input type="checkbox" />
-                        Orange
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="a"/>
-                        Apple
-                    </label>
-
-                    <label class="title">Address:</label>
-                    <select id="" name="">
-                        <option value="">Sydney</option>
-                        <option value="">b</option>
-                    </select>
-                    <div class="help info">This is help line</div>
-
-                    <label class="title">Where:</label>
-                    <select id="" name="" multiple="multiple">
-                        <option value="">Sydney</option>
-                        <option value="">Sydney</option>
-                        <option value="">b</option>
-                        <option value="">b</option>
-                        <option value="">Sydney</option>
-                        <option value="">b</option>
-                    </select>
-                    <div class="help success">This is help line</div>
-
-                    <label for="" class="title">Text</label>
-                    <textarea id="" name="" rows="10" cols="30"></textarea>
-                </form>
-            </div>
-            <!-- inline form -->
-            <div> 
-                <form action="">
-                    <div class="third">
-                        <div class="device-third">
-                            <label class="title" for="">inline:</label>
-                        </div>
-                        <!-- inline style for demo purpose, create your own 2/3 class create and mobile
-                        too or use device-half/third for mobile -->
-                        <div style="width:65%" class="last">
-                            <input type="text" />
-                            <div class="help">This is help line</div>
-                        </div>
-                    </div>
-                    <div class="third">
-                        <div class="device-third">
-                            <label class="title" for="">Try again:</label>
-                        </div>
-                        <!-- inline style for demo purpose, create your own 2/3 class create and mobile
-                        too or use device-half/third for mobile -->
-                        <div style="width:65%" class="last">
-                            <textarea id="" name="" rows="10" cols="30"></textarea>
-                            <div class="help error">This is help line</div>
-                        </div>
-                    </div>
-                    <div class="third">
-                        <div class="device-third">
-                            <label class="title" for="">Radio:</label>
-                        </div>
-                        <!-- inline style for demo purpose, create your own 2/3 class create and mobile
-                        too or use device-half/third for mobile -->
-                        <div style="width:65%" class="last">
-                            <label class="radio" > <input type="radio" name="1"/> Do write codes after 2am in the morning </label>
-                            <label class="radio" > <input type="radio" name="1"/> Or you only writes in the morning </label>
-                            <label class="radio" > <input type="radio" name="1"/> Well i'm just crusing </label>
-                        </div>
-                    </div>
-                    <div class="third">
-                        <div class="device-third">
-                            <label class="title" for="">checkbox:</label>
-                        </div>
-                        <!-- inline style for demo purpose, create your own 2/3 class create and mobile
-                        too or use device-half/third for mobile -->
-                        <div style="width:65%" class="last">
-                            <label class="checkbox"> <input type="checkbox" /> Banana in the bag </label>
-                            <label class="checkbox"> <input type="checkbox" /> Water bottle fully loaded with red bull </label>
-                            <label class="checkbox"> <input type="checkbox" /> Everything is ready </label>
-                        </div>
-                    </div>
-                    <div class="third">
-                        <div class="device-third">
-                            <label class="title" for="">inline:</label>
-                        </div>
-                        <!-- inline style for demo purpose, create your own 2/3 class create and mobile
-                        too or use device-half/third for mobile -->
-                        <div style="width:65%" class="last">
-                            <label class="radio inline" > <input type="radio" name="1"/> Morning </label>
-                            <label class="radio inline" > <input type="radio" name="1"/> Afternoon </label>
-                            <label class="radio inline" > <input type="radio" name="1"/> Tommorow </label>
-                            <label class="radio inline" > <input type="radio" name="1"/> Next Week </label>
-                            <hr class="" />
-                            <p class="h6 textcenter">or use .half again</p>
-                            <hr class="clear" />
-                            <div class="half">
-                                <div class="device-half">
-                                    <label class="radio inline" > <input type="radio" name="1"/> Afternoon </label>
-                                </div>
-                                <div class="device-half last">
-                                    <label class="radio inline" > <input type="radio" name="1"/> Afternoon </label>
-                                </div>
-                            </div>
-                            <div class="half">
-                                <div class="device-half">
-                                    <label class="radio inline" > <input type="radio" name="1"/> Morning </label>
-                                </div>
-                                <div class="device-half last">
-                                    <label class="radio inline" > <input type="radio" name="1"/> Morning </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- end inline form -->
-            <!-- buttons -->
-            <div class="last"> 
-                <input type="file" />
-                <input type="submit"/>
-                <input type="button" value="Enter" />
-                <button>Button</button>
-                <input type="reset" />
-                <div class="dropdown button">
-                    <a href="#" class="h6"> menu 2 </a>
-                    <div>
-                        <ul class="nostyle h6">
-                            <li><a href="#">drop 1</a></li>
-                            <li><a href="#">drop 2</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">drop 3</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="alert error">
-                    <strong>Error !</strong>
-                    Please check your input
-                    <a href="#" class="close">x</a>
-                </div>
-                <div class="alert info">
-                    <strong>Info !</strong>
-                    1 + 1 really means 2, but 1 = 1?
-                    <p>Yeah its FALSE</p>
-                    <a href="#" class="close">x</a>
-                </div>
-                <div class="alert success">
-                    <strong>Success !</strong>
-                    Oh year, its done
-                    <a href="#" class="close">x</a>
-                </div>
-                <div class="alert warning">
-                    <strong>Warning !</strong>
-                    Are you sure you want this?
-                    <a href="#" class="close">x</a>
-                </div>
-
-                <div id="sampleTab">
-                    <div class="tab">
-                    	<div class="title">tab 1</div>
-                        somthing here
-                    </div>
-                    <div class="tab">
-                    	<div class="title">tab 2</div>
-                        nothing here
-                    </div>
-                    <div class="tab">
-                    	<div class="title">tab 2</div>
-                        nother why not
-                    </div>
-                </div>
-            </div>
-            <!-- end buttons -->
-        </section>
-        <!-- end third -->
-        <div class="half">
-            <div>
-                <table>
-                    <caption>normal</caption>
-                    <thead>
-                        <tr>
-                            <th colspan="2">Phone</th>
-                            <th>Fruits</th>
-                            <th>Cars</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Level 1</td>
-                            <td>Nokia</td>
-                            <td>Apple</td>
-                            <td>Toyota</td>
-                        </tr>
-                        <tr>
-                            <td>Level 2</td>
-                            <td>iPhone</td>
-                            <td>Orange</td>
-                            <td>BMW</td>
-                        </tr>
-                        <tr>
-                            <td>Level 3 </td>
-                            <td>Samsung</td>
-                            <td>Banana</td>
-                            <td>Renault</td>
-                        </tr>
-                        <tr>
-                            <td>Level 4 </td>
-                            <td>HTC</td>
-                            <td>Lychee</td>
-                            <td>Great Wall</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div> <!-- plain -->
-            <div class="last">
-                <table class="border">
-                    <caption>Bordered</caption>
-                    <thead>
-                        <tr>
-                            <th colspan="2">Phone</th>
-                            <th>Fruits</th>
-                            <th>Cars</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Level 1</td>
-                            <td>Nokia</td>
-                            <td>Apple</td>
-                            <td>Toyota</td>
-                        </tr>
-                        <tr>
-                            <td>Level 2</td>
-                            <td>iPhone</td>
-                            <td>Orange</td>
-                            <td>BMW</td>
-                        </tr>
-                        <tr>
-                            <td>Level 3 </td>
-                            <td>Samsung</td>
-                            <td>Banana</td>
-                            <td>Renault</td>
-                        </tr>
-                        <tr>
-                            <td>Level 4 </td>
-                            <td>HTC</td>
-                            <td>Lychee</td>
-                            <td>Great Wall</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div> <!-- bordered -->
-        </div> <!-- end half -->
-        <div class="half">
-            <div>
-                <table class="zebra">
-                    <caption>Zebra</caption>
-                    <thead>
-                        <tr>
-                            <th colspan="2">Phone</th>
-                            <th>Fruits</th>
-                            <th>Cars</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Level 1</td>
-                            <td>Nokia</td>
-                            <td>Apple</td>
-                            <td>Toyota</td>
-                        </tr>
-                        <tr>
-                            <td>Level 2</td>
-                            <td>iPhone</td>
-                            <td>Orange</td>
-                            <td>BMW</td>
-                        </tr>
-                        <tr>
-                            <td>Level 3 </td>
-                            <td>Samsung</td>
-                            <td>Banana</td>
-                            <td>Renault</td>
-                        </tr>
-                        <tr>
-                            <td>Level 4 </td>
-                            <td>HTC</td>
-                            <td>Lychee</td>
-                            <td>Great Wall</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div> <!-- zebra -->
-            <div class="last">
-                <table class="border zebra">
-                    <caption>Bordered zebra</caption>
-                    <thead>
-                        <tr>
-                            <th colspan="2">Phone</th>
-                            <th>Fruits</th>
-                            <th>Cars</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Level 1</td>
-                            <td>Nokia</td>
-                            <td>Apple</td>
-                            <td>Toyota</td>
-                        </tr>
-                        <tr>
-                            <td>Level 2</td>
-                            <td>iPhone</td>
-                            <td>Orange</td>
-                            <td>BMW</td>
-                        </tr>
-                        <tr>
-                            <td>Level 3 </td>
-                            <td>Samsung</td>
-                            <td>Banana</td>
-                            <td>Renault</td>
-                        </tr>
-                        <tr>
-                            <td>Level 4 </td>
-                            <td>HTC</td>
-                            <td>Lychee</td>
-                            <td>Great Wall</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div> <!-- end table, half -->
-        <section role="display" class="sixth">
-            <div class="display device-third">
-                <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcSmjVcnasjl_lUbbfQC6NU_J-bwexxMelX7u5csMVqziReP8X_lBQ" alt="placeholder" /> 
-                <h5 class="title">Display element</h5>
-                <p class="h5">Writing a line or two</p>
-            </div>
-            <div class="display device-third">
-                <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcSmjVcnasjl_lUbbfQC6NU_J-bwexxMelX7u5csMVqziReP8X_lBQ" alt="placeholder" /> 
-                <button class="center">Like This</button>
-            </div>
-            <div class="display device-third-last device-show">
-                <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcSmjVcnasjl_lUbbfQC6NU_J-bwexxMelX7u5csMVqziReP8X_lBQ" alt="placeholder" /> 
-                <h4 class="title">Image title</h4>
-                <p class="h5">this shows only on mobile</p>
-            </div>
-            <div class="four last device-full">
-                <div class="half">
-                    <div class="display last device-half">
-                        <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcSmjVcnasjl_lUbbfQC6NU_J-bwexxMelX7u5csMVqziReP8X_lBQ" alt="placeholder" /> 
-                    </div>
-                    <div class="display device-half-last">
-                        <div class="half">
-                            <div><img src="http://t1.gstatic.com/images?q=tbn:ANd9GcSmjVcnasjl_lUbbfQC6NU_J-bwexxMelX7u5csMVqziReP8X_lBQ" alt="placeholder" /></div>
-                            <div class="last">
-                                Feel free to use grid here, it works fine in mobile
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div><!--/site-->
+    <section id="nav" class="site-container"></section>
+    <section id="typo" class="site-container"></section>
+    <section id="list" class="site-container"></section>
+    <section id="form" class="site-container"></section>
+    <section id="table" class="site-container"></section>
+    <section id="ui" class="site-container"></section>
+    <section id="js"></section>
 </html>

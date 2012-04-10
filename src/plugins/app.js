@@ -23,6 +23,7 @@ $(document).ready(function() {
     $('#sampleTab').devTab({nav:true});
     $('#sampleSlideTab').devTab({fx:'slideX', resize:true, menuBot: true});
 
+    $('.popit').devPop({debug:true})
 });
 
 /*  window.load
