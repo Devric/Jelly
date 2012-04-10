@@ -1,0 +1,3 @@
+[submodule "src/plugins/lib/devTab"]
+	path = src/plugins/lib/devTab
+	url = git@github.com:Devric/devTab.git
