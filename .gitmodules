@@ -10,3 +10,6 @@
 [submodule "src/plugins/lib/headjs"]
 	path = src/plugins/lib/headjs
 	url = https://github.com/headjs/headjs.git
+[submodule "src/plugins/lib/box-sizing-polyfill"]
+	path = src/plugins/lib/box-sizing-polyfill
+	url = https://github.com/Schepp/box-sizing-polyfill.git

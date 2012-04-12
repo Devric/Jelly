@@ -1,0 +1,5 @@
+/* Make box-sizing work on both ie6 and 7 */
+.ie7 *, .ie6 * {
+    box-sizing:border-box;
+    behavior: url(src/plugins/lib/box-sizing-polyfill/boxsizing.htc);
+}

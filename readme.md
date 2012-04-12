@@ -19,6 +19,44 @@ Jelly designed with a little strange file structure, normally you should see som
 
 But considering that a lot of the javascript plugins now days comes with their own css ready, so it really should be treated like a total plugin, rather than seperating its css into your css folder and js into your js folder, so Jelly do it this way
 
+<pre>                                   +--------------+
+                                   |  index.html  |
+                                   +------+-------+
+                                          |
+                                     +----v-----+
+                                     |   src    |
+                                     |----------|
+                       +-------------+ img/     |
+                       |             | plugins/ +--------------+
+                       |             | css/+--+ |              |
+                       |             +--------|-+              |
+                       |                      |                |
+                       |                      |                |
+                   +---v---+       +----------v----+    +------v--------+
+                   |  img  |       |      css      |    |    plugins    |
+                   |-------|       |---------------|    |---------------|
+                   | ...   |       |  app.css  &lt;-+ |    | app_dev.js    |
+                   +-------+       | config.css ++ |    | app_helper.js |
+                                   | + _m/ +---+   |    | app.js        |
+                                   +-----------|---+    | + lib/+-+     |
+                                               |        +---------|-----+
+                                               |                  |
+                                 +-------------v-----+  +---------v-----+
+                                 |        _m         |  |      lib      |
+                                 |-------------------|  |---------------|
+                                 | _base_reset.css   |  | jquery.js     |
+                                 | _base_form.css    |  | backbone.js   |
+                                 | _base_font.css    |  | underscore.js |
+                                 | _base_grid.css    |  | otherplugin   |
+                                 | _base_table.css   |  |   /js/        |
+                                 | _base_layout.css  |  |   /img/       |
+                                 | _base_nav.css     |  |   /css/       |
+                                 | _base_utility.css |  | spriteSet     |
+                                 | _ui_jelly.css     |  |   /img/       |
+                                 | ....              |  |   /css/       |
+                                 | + src/            |  +---------------+
+                                 +-------------------+</pre>
+
 	index.html
 	  src
 	  	app.css
@@ -39,7 +77,7 @@ But considering that a lot of the javascript plugins now days comes with their o
 	  	  jquery.min.js 		|| place js libraries here
 	  	  jquery.plugin/		|| put your plugins like this, or it can all go to a plugin folder
 	  	    plugin.min.js
-	  	    plugin.css
+	  	    plugin.css	  	    
 
 
 
