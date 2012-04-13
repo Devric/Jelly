@@ -26,17 +26,8 @@ body {
     color: #555;
 }
 
-
-    /* [?] give space on sides in mobile
-     * use padding if have background */
-    @media only screen and (max-width:801px){
-        body {
-            width:96%;
-            margin:0 auto;
-        }
-    }
-
-.site-container {
+.site-container,
+.device-site-container {
     /* [?] site container are 
      * set with width 100%
      * use min|max to control,
@@ -44,6 +35,14 @@ body {
      * if you use the jelly grid */
     max-width:960px;
 }
+    /* [?] give space on sides in mobile
+     * use padding if have background */
+    @media only screen and (max-width:801px){
+        .site-container {
+            width:96%;
+            margin:0 auto;
+        }
+    }
 
 
 
