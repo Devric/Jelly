@@ -1,0 +1,24 @@
+/* Linepaper, simulate blue line paper with table
+ * depend: _base_table
+ * =========================== */
+
+.linepaper {}
+
+/* centering and spacing texts */
+.linepaper th,
+.linepaper td {
+    padding:8px 15px;
+    text-align:center }
+
+/* give extra header height */
+.linepaper th { padding-top:80px }
+
+/* apply line borders and remove others */
+.linepaper td { border-bottom:1px solid #B3FCFF }
+.linepaper tr:first-child td { border-top:1px solid #B3FCFF }
+
+/* apply a empty td/td for first column 
+ * to fake margin with double border */
+.linepaper tr td:first-child,
+.linepaper tr th:first-child {
+    border-right:double 3px #B80F00 }

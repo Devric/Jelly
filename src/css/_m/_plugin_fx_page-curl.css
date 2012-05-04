@@ -1,0 +1,31 @@
+/* credit: http://www.matthamm.com/ */
+
+.page-curl {
+  position: relative;
+  margin: 20px auto;
+  padding: 10px;
+  width: 150px;
+  height: 100px;
+  border: 1px solid #efefef;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), inset 0 0 40px rgba(0, 0, 0, 0.06);
+}
+.page-curl:before,
+.page-curl:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 10px;
+  bottom: 10%;
+  width: 70%;
+  height: 55%;
+  max-width: 300px;
+  max-height: 100px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  -webkit-transform: skew(-15deg) rotate(-6deg);
+}
+.page-curl:after {
+  left: auto;
+  right: 10px;
+  -webkit-transform: skew(15deg) rotate(6deg);
+}

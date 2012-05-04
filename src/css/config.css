@@ -23,3 +23,17 @@
 
 /* plugin modules 
  * ===================================== */
+
+
+
+
+/* || unused
+// !!if the :before,:after are blocked by 
+//   backgrounds, some plugins requires to 
+//   be wrap with a container with z-index:1;
+
+@import url(_m / _plugin_fx_linepaper.css);   /* .linepaper */
+@import url(_m / _plugin_fx_page-curl.css);   /* .page-curl */
+@import url(_m / _plugin_fx_paper-stack.css); /* .paperstack */
+@import url(_m / _plugin_fx_ribbon.css);      /* .ribbon */
+*/
